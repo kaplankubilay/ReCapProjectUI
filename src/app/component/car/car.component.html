@@ -11,6 +11,7 @@
             <th>Renk</th>
             <th>Açıklama</th>
             <th>Model</th>
+            <th>Plaka</th>
         </tr>
     </thead>
     <tr *ngFor='let carDetail of carDetails'>
@@ -20,5 +21,6 @@
         <th>{{carDetail.colorName}}</th>
         <th>{{carDetail.description}}</th>
         <th>{{carDetail.modelYear}}</th>
+        <th>{{carDetail.plate}}</th>
     </tr>
 </table>

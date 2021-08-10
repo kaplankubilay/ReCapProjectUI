@@ -5,4 +5,5 @@ export interface CarDetail{
     colorName:string;
     description:string;
     modelYear?:number;
+    plate:string
 }
