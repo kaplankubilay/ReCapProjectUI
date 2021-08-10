@@ -1,0 +1,12 @@
+<table *ngIf='isLoaded' class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Renk</th>
+    </tr>
+  </thead>
+  <tr *ngFor='let color of colors'>
+    <th>{{color.id}}</th>
+    <th>{{color.name}}</th>
+  </tr>
+</table>

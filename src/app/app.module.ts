@@ -8,6 +8,7 @@ import { MenuComponent } from './component/menu/menu.component';
 import { CarDetailComponent } from './component/car-detail/car-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrandComponent } from './component/brand/brand.component';
+import { ColorComponent } from './component/color/color.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BrandComponent } from './component/brand/brand.component';
     NaviComponent,
     MenuComponent,
     CarDetailComponent,
-    BrandComponent
+    BrandComponent,
+    ColorComponent
   ],
   imports: [
     BrowserModule,
