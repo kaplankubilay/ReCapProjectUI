@@ -1,0 +1,24 @@
+<table *ngIf='isLoad' class="table">
+    <thead>
+        <tr>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Plaka</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Şirket</th>
+            <th>Kiralama tarihi</th>
+            <th>Dönüş Tarihi</th>
+        </tr>
+    </thead>
+    <tr *ngFor='let rentalDetail of rentalDetails'>
+        <th>{{rentalDetail.brandName}}</th>
+        <th>{{rentalDetail.modelName}}</th>
+        <th>{{rentalDetail.plate}}</th>        
+        <th>{{rentalDetail.userFirstName}}</th>
+        <th>{{rentalDetail.userLastName}}</th>
+        <th>{{rentalDetail.customerName}}</th>
+        <th>{{rentalDetail.rentDate}}</th>
+        <th>{{rentalDetail.returnDate}}</th>
+    </tr>
+</table>
