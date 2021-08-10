@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NaviComponent } from './component/navi/navi.component';
 import { MenuComponent } from './component/menu/menu.component';
-import { CarDetailComponent } from './component/car-detail/car-detail.component';
+import { CarComponent } from './component/car/car.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrandComponent } from './component/brand/brand.component';
 import { ColorComponent } from './component/color/color.component';
@@ -16,7 +16,7 @@ import { CustomerComponent } from './component/customer/customer.component';
     AppComponent,
     NaviComponent,
     MenuComponent,
-    CarDetailComponent,
+    CarComponent,
     BrandComponent,
     ColorComponent,
     CustomerComponent

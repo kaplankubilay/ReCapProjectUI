@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { observable } from 'rxjs';
 import { CarDetail } from '../models/carDetail';
-import { CarDetailService } from '../services/car-detail.service';
+import { CarService } from '../services/car.service';
 
 @Component({
-  selector: 'app-car-detail',
-  templateUrl: './car-detail.component.html',
-  styleUrls: ['./car-detail.component.css']
+  selector: 'app-car',
+  templateUrl: './car.component.html',
+  styleUrls: ['./car.component.css']
 })
-export class CarDetailComponent implements OnInit {
+export class CarComponent implements OnInit {
 
   carDetails:CarDetail[]=[]
 
   isLoaded:boolean=false;
 
-  constructor(private carDetailService:CarDetailService) { }
+  constructor(private carService:CarService) { }
 
   ngOnInit(): void {
     debugger;
@@ -22,7 +22,7 @@ export class CarDetailComponent implements OnInit {
   }
 
   getCarDetailMetod(){
-    this.carDetailService.getCarDetails().subscribe(response=>{
+    this.carService.getCarDetails().subscribe(response=>{
       this.carDetails=response.data;
       this.isLoaded=true;
     });

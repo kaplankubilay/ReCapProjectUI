@@ -6,7 +6,7 @@ import { CarDetailResponseModel } from '../models/carDetailResponseModel';
 @Injectable({
   providedIn: 'root'
 })
-export class CarDetailService {
+export class CarService {
 
   apiUrl:string="https://localhost:44319/api/cars/getcardetailsdto";
 
