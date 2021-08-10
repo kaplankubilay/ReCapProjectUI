@@ -3,18 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DenemeComponent } from './component/deneme/deneme.component';
 import { NaviComponent } from './component/navi/navi.component';
+import { MenuComponent } from './component/menu/menu.component';
+import { CarDetailComponent } from './component/car-detail/car-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DenemeComponent,
-    NaviComponent
+    NaviComponent,
+    MenuComponent,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
