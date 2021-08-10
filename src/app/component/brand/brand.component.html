@@ -2,11 +2,13 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
+            <th>Marka</th>
+            <th>Model Adı</th>
         </tr>
     </thead>
     <tr *ngFor='let brand of brands'>
         <th>{{brand.id}}</th>
         <th>{{brand.name}}</th>
+        <th>{{brand.modelName}}</th>
     </tr>
 </table>
