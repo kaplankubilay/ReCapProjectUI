@@ -7,13 +7,15 @@ import { NaviComponent } from './component/navi/navi.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { CarDetailComponent } from './component/car-detail/car-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrandComponent } from './component/brand/brand.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NaviComponent,
     MenuComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    BrandComponent
   ],
   imports: [
     BrowserModule,
