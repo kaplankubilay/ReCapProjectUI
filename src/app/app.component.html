@@ -1,5 +1,18 @@
-<app-navi></app-navi>
+<div class="container">
 
-<app-deneme></app-deneme>
+    <app-navi></app-navi>
 
-<router-outlet></router-outlet>
+    <div class="row">
+        <div class="col-md-3">
+            <app-menu class="row"></app-menu>
+        </div>
+    
+        <div class="col-md-9">
+            <app-car-detail></app-car-detail>
+        </div>
+    </div>    
+
+    <router-outlet></router-outlet>
+
+</div>
+
