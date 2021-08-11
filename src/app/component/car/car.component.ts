@@ -17,7 +17,6 @@ export class CarComponent implements OnInit {
   constructor(private carService:CarService) { }
 
   ngOnInit(): void {
-    debugger;
     this.getCarDetailMetod();
   }
 
