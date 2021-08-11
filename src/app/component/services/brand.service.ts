@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Brand } from '../models/brand';
-import { BrandResponseModel } from '../models/brandResponseModel';
 import { GetListResponseModel } from '../models/getListResponseModel';
 
 @Injectable({
