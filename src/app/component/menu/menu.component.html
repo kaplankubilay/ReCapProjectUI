@@ -1,25 +1,22 @@
-<ul class="class">
-    <div>
-        <a routerLink="/cars/getcardetailsdto">Arabalar</a>
-    </div>
-    
-    <div>
-        <a routerLink="colors/getallcolors" (click)="getAllColorComponent()">Renkler</a>
-        <ol *ngFor="let color of colors">{{color.name}}</ol>
-    </div>
-    
-    <div>
-        <a routerLink="brands/getallbrands" (click)="getAllBrandComponent()">Markalar</a>
-        <ol *ngFor="let brand of brands">{{brand.name}}</ol>
-    </div>
-    
-    <div>
-        <a routerLink="customers/getcustomerdetailsdto">Müşteriler</a>
-    </div>
+<ul class="list-group">
 
-    <div>
-        <a routerLink="rentals/getrentaldetaildto">Kira Listesi</a>
-    </div>    
+    <li routerLink="/cars/getcardetailsdto">Arabalar
+    </li>
+
+    <li routerLink="colors/getallcolors" (click)="getAllColorComponent()">Renkler
+        <ol *ngFor="let color of colors">{{color.name}}</ol>      
+    </li>
+
+    <li routerLink="brands/getallbrands" (click)="getAllBrandComponent()">Markalar
+        <ol *ngFor="let brand of brands">{{brand.name}}</ol>    
+    </li>
+
+    <li routerLink="customers/getcustomerdetailsdto">Müşteriler
+    </li>
+
+    <li routerLink="rentals/getrentaldetaildto">Kira Listesi
+    </li>
+    
 </ul>
 
 
