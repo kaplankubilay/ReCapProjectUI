@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Brand } from '../models/brand';
 import { Color } from '../models/color';
+import { BrandService } from '../services/brand.service';
 import { ColorService } from '../services/color.service';
 
 @Component({
@@ -9,8 +11,10 @@ import { ColorService } from '../services/color.service';
 })
 export class MenuComponent implements OnInit {
 
-  colors:Color[]=[]
-  constructor(private colorService:ColorService) { }
+  colors:Color[]=[];
+  brands:Brand[]=[];
+  constructor(private colorService:ColorService,
+    private brandService:BrandService) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +22,12 @@ export class MenuComponent implements OnInit {
   getAllColorComponent(){
     this.colorService.getAllColors().subscribe(response=>{
       this.colors=response.data;
+    });
+  }
+
+  getAllBrandComponent(){
+    this.brandService.getAllBrands().subscribe(response=>{
+      this.brands=response.data;
     });
   }
 

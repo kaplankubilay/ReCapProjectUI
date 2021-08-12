@@ -9,18 +9,18 @@
     </div>
     
     <div>
-        <a routerLink="brands/getallbrands">Markalar</a>
-        <li></li>
+        <a routerLink="brands/getallbrands" (click)="getAllBrandComponent()">Markalar</a>
+        <ol *ngFor="let brand of brands">{{brand.name}}</ol>
     </div>
     
     <div>
         <a>Müşteriler</a>
-        <li></li>
+        <ol></ol>
     </div>
 
     <div>
         <a>Kira Listesi</a>
-        <li></li>
+        <ol></ol>
     </div>    
 </ul>
 
