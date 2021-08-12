@@ -1,14 +1,27 @@
-<ul>
-    <a routerLink="/cars/getcardetailsdto">Arabalar</a>
-    <li></li>
-    <a>Renkler</a>
-    <li></li>
-    <a>Markalar</a>
-    <li></li>
-    <a>Müşteriler</a>
-    <li></li>
-    <a>Kira Listesi</a>
-    <li></li>
+<ul class="class">
+    <div>
+        <a routerLink="/cars/getcardetailsdto">Arabalar</a>
+    </div>
+    
+    <div>
+        <a routerLink="colors/getallcolors" (click)="getAllColorComponent()">Renkler</a>
+        <ol *ngFor="let color of colors">{{color.name}}</ol>
+    </div>
+    
+    <div>
+        <a>Markalar</a>
+        <li></li>
+    </div>
+    
+    <div>
+        <a>Müşteriler</a>
+        <li></li>
+    </div>
+
+    <div>
+        <a>Kira Listesi</a>
+        <li></li>
+    </div>    
 </ul>
 
 
