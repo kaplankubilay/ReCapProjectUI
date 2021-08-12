@@ -5,13 +5,15 @@ import { CarComponent } from './component/car/car.component';
 import { ColorComponent } from './component/color/color.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { MenuComponent } from './component/menu/menu.component';
+import { RentalComponent } from './component/rental/rental.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:MenuComponent},
   {path:"cars/getcardetailsdto",component:CarComponent},
   {path:"colors/getallcolors",component:ColorComponent},
   {path:"brands/getallbrands",component:BrandComponent},
-  {path:"customers/getcustomerdetailsdto",component:CustomerComponent}
+  {path:"customers/getcustomerdetailsdto",component:CustomerComponent},
+  {path:"rentals/getrentaldetaildto",component:RentalComponent}
 ];
 
 @NgModule({
