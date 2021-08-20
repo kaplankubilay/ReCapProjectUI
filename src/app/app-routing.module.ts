@@ -4,11 +4,12 @@ import { BrandComponent } from './component/brand/brand.component';
 import { CarComponent } from './component/car/car.component';
 import { ColorComponent } from './component/color/color.component';
 import { CustomerComponent } from './component/customer/customer.component';
+import { MainPageComponent } from './component/mainPage/mainPage.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { RentalComponent } from './component/rental/rental.component';
 
 const routes: Routes = [
-  {path:"",pathMatch:"full",component:MenuComponent},
+  {path:"",pathMatch:"full",component:MainPageComponent},
   {path:"cars/getcardetailsdto",component:CarComponent},
   {path:"colors/getallcolors",component:ColorComponent},
   {path:"brands/getallbrands",component:BrandComponent},
