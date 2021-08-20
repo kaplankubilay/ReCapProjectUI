@@ -12,6 +12,7 @@ const routes: Routes = [
   {path:"",pathMatch:"full",component:MainPageComponent},
   {path:"cars/getcardetailsdto",component:CarComponent},
   {path:"cars/getcarsbybrandId/:brandId",component:CarComponent},
+  {path:"cars/getcarsbycolorId/:colorId",component:CarComponent},
   {path:"colors/getallcolors",component:ColorComponent},
   {path:"brands/getallbrands",component:BrandComponent},
   {path:"customers/getcustomerdetailsdto",component:CustomerComponent},

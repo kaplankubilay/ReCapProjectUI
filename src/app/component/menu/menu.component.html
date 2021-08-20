@@ -3,8 +3,8 @@
     <li routerLink="cars/getcardetailsdto">Arabalar
     </li>
 
-    <li routerLink="colors/getallcolors" (click)="getAllColorComponent()">Renkler
-        <ol *ngFor="let color of colors">{{color.name}}</ol>      
+    <li> <span routerLink="colors/getallcolors" (click)="getAllColorComponent()">Renkler</span> 
+        <ol *ngFor="let color of colors" routerLink="cars/getcarsbycolorId/{{color.id}}">{{color.name}}</ol>      
     </li>
 
     <li> <span  routerLink="brands/getallbrands" (click)="getAllBrandComponent()">Markalar</span> 
