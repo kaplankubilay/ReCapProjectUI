@@ -1,14 +1,14 @@
 <ul class="list-group">
 
-    <li routerLink="/cars/getcardetailsdto">Arabalar
+    <li routerLink="cars/getcardetailsdto">Arabalar
     </li>
 
     <li routerLink="colors/getallcolors" (click)="getAllColorComponent()">Renkler
         <ol *ngFor="let color of colors">{{color.name}}</ol>      
     </li>
 
-    <li routerLink="brands/getallbrands" (click)="getAllBrandComponent()">Markalar
-        <ol *ngFor="let brand of brands">{{brand.name}}</ol>    
+    <li> <span  routerLink="brands/getallbrands" (click)="getAllBrandComponent()">Markalar</span> 
+        <ol *ngFor="let brand of brands"  routerLink="cars/getcarsbybrandId/{{brand.id}}">{{brand.name}}</ol>    
     </li>
 
     <li routerLink="customers/getcustomerdetailsdto">Müşteriler

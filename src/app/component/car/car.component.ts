@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { observable } from 'rxjs';
 import { CarDetail } from '../models/carDetail';
 import { CarService } from '../services/car.service';
@@ -14,14 +15,29 @@ export class CarComponent implements OnInit {
 
   isLoaded:boolean=false;
 
-  constructor(private carService:CarService) { }
+  constructor(private carService:CarService,
+              private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getCarDetailMetod();
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["brandId"]){
+        this.getCarsByBrandIdMetod(params["brandId"])
+      }
+      else{
+        this.getCarDetailMetod();
+      }
+    });
   }
 
   getCarDetailMetod(){
     this.carService.getCarDetails().subscribe(response=>{
+      this.carDetails=response.data;
+      this.isLoaded=true;
+    });
+  }
+
+  getCarsByBrandIdMetod(brandId:number){
+    this.carService.getCarsByBrandId(brandId).subscribe(response=>{
       this.carDetails=response.data;
       this.isLoaded=true;
     });

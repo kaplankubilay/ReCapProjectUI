@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from '../models/brand';
+import { CarDetail } from '../models/carDetail';
 import { Color } from '../models/color';
 import { BrandService } from '../services/brand.service';
 import { ColorService } from '../services/color.service';
@@ -13,6 +14,8 @@ export class MenuComponent implements OnInit {
 
   colors:Color[]=[];
   brands:Brand[]=[];
+  carDetails:CarDetail;
+  currentBrandId:number;
   constructor(private colorService:ColorService,
     private brandService:BrandService) { }
 
@@ -30,5 +33,9 @@ export class MenuComponent implements OnInit {
       this.brands=response.data;
     });
   }
+
+  // setCurrentBrandId(brandId:number){
+  //   this.currentBrandId=brandId;
+  // }
 
 }
