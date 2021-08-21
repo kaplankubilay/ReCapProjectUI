@@ -1,20 +1,20 @@
 <ul class="list-group">
 
-    <li (click)="setOrderActive(1)" routerLink="cars/getcardetailsdto" class="list-group-item" [class]="activeSelected(1)">Arabalar
+    <li><span (click)="setOrderActive(1)" routerLink="cars/getcardetailsdto" class="list-group-item" [class]="activeSelected(1)"><h6>Arabalar</h6> </span> 
     </li>
 
-    <li > <span (click)="setOrderActive(2)" class="list-group-item" routerLink="colors/getallcolors" (click)="getAllColorComponent()" [class]="activeSelected(2)">Renkler</span> 
+    <li><span (click)="setOrderActive(2)" class="list-group-item" routerLink="colors/getallcolors" (click)="getAllColorComponent()" [class]="activeSelected(2)"><h6>Renkler</h6></span> 
         <ol class="list-group-item" *ngFor="let color of colors" routerLink="cars/getcarsbycolorId/{{color.id}}">{{color.name}}</ol>      
     </li>
 
-    <li> <span (click)="setOrderActive(3)" class="list-group-item"  routerLink="brands/getallbrands" (click)="getAllBrandComponent()" [class]="activeSelected(3)">Markalar</span> 
+    <li><span (click)="setOrderActive(3)" class="list-group-item"  routerLink="brands/getallbrands" (click)="getAllBrandComponent()" [class]="activeSelected(3)"><h6>Markalar</h6></span> 
         <ol class="list-group-item" *ngFor="let brand of brands"  routerLink="cars/getcarsbybrandId/{{brand.id}}">{{brand.name}}</ol>    
     </li>
 
-    <li (click)="setOrderActive(4)" class="list-group-item" routerLink="customers/getcustomerdetailsdto" [class]="activeSelected(4)">Müşteriler
+    <li><span (click)="setOrderActive(4)" class="list-group-item" routerLink="customers/getcustomerdetailsdto" [class]="activeSelected(4)"><h6>Müşteriler</h6></span>
     </li>
 
-    <li (click)="setOrderActive(5)" class="list-group-item" routerLink="rentals/getrentaldetaildto" [class]="activeSelected(5)">Kira Listesi
+    <li><span (click)="setOrderActive(5)" class="list-group-item" routerLink="rentals/getrentaldetaildto" [class]="activeSelected(5)"><h6>Kira Listesi</h6></span> 
     </li>
     
 </ul>
