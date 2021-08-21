@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   colors:Color[]=[];
   brands:Brand[]=[];
   carDetails:CarDetail;
-  currentBrandId:number;
+  _currentOrder:number=0;
   constructor(private colorService:ColorService,
     private brandService:BrandService) { }
 
@@ -34,8 +34,17 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  // setCurrentBrandId(brandId:number){
-  //   this.currentBrandId=brandId;
-  // }
+  setOrderActive(order:number){
+    this._currentOrder=order;
+  }
 
+  activeSelected(selected:number){
+      if(this._currentOrder==selected){
+        return "active"
+      }     
+      else
+      {
+        return "";
+      }
+  }
 }
