@@ -12,9 +12,11 @@
             <th>Açıklama</th>
             <th>Model</th>
             <th>Plaka</th>
+            <th></th>
         </tr>
     </thead>
-    <tr *ngFor='let carDetail of carDetails'>
+    <tbody>
+      <tr *ngFor='let carDetail of carDetails'>
         <th>{{carDetail.carId}}</th>
         <th>{{carDetail.brandName}}</th>
         <th>{{carDetail.fuelName}}</th>
@@ -22,5 +24,34 @@
         <th>{{carDetail.description}}</th>
         <th>{{carDetail.modelYear}}</th>
         <th>{{carDetail.plate}}</th>
-    </tr>
+        <th>                  
+          <button routerLink="/cars/GetCarDetailDtoByCarId/{{carDetail.carId}}"type="button" class="btn btn-primary btn-sm">Detay</button>
+        </th>
+      </tr>
+    </tbody>
+    
 </table>
+
+<!-- <div class="row" >
+    <div *ngFor='let carDetail of carDetails' class="col-sm-4" style="height: 18rem;">      
+        <div class="card" style="width: 18rem;" [class]="getFirstImageByCarId(carDetail.carId)"> -->
+          <!--<img class="card-img-top" src="../../../assets/img/defaultPhoto.jpg"  alt="Card image cap">-->
+          <!-- <img class="card-img-top" src="getPath()" alt="Card image cap">
+
+          <div class="card-body">
+            <h5 class="card-title">{{carDetail.brandName}} - {{carDetail.modelName}}</h5>
+            <p class="card-text">{{carDetail.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{carDetail.modelYear}} Model</li>
+            <li class="list-group-item">{{carDetail.fuelName}}</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+</div> -->
+
+
