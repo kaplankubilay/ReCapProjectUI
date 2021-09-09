@@ -56,6 +56,7 @@
         <th>Model Yılı</th>
         <th>Yakıt</th>
         <th>Günlük Ücret</th>
+        <th>KDV Dahil</th>
         <th>Açıklama</th>
       </tr>
     </thead>
@@ -65,7 +66,8 @@
         <td>{{ detail.colorName }}</td>
         <td>{{ detail.modelYear }}</td>
         <td>{{ detail.fuelName }}</td>
-        <td>{{ detail.dailyPrice }}</td>
+        <td>{{ detail.dailyPrice + "₺"}}</td>
+        <td>{{ (detail.dailyPrice | vatAdded : 18)+ "₺" }}</td>
         <td>{{ detail.description }}</td>
       </tr>
     </tbody>
