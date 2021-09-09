@@ -18,12 +18,12 @@
     <tbody>
       <tr *ngFor='let carDetail of carDetails'>
         <th>{{carDetail.carId}}</th>
-        <th>{{carDetail.brandName}}</th>
-        <th>{{carDetail.fuelName}}</th>
-        <th>{{carDetail.colorName}}</th>
-        <th>{{carDetail.description}}</th>
+        <th>{{carDetail.brandName | uppercase }}</th>
+        <th>{{carDetail.fuelName | uppercase }}</th>
+        <th>{{carDetail.colorName | uppercase }}</th>
+        <th>{{carDetail.description | uppercase }}</th>
         <th>{{carDetail.modelYear}}</th>
-        <th>{{carDetail.plate}}</th>
+        <th>{{carDetail.plate | uppercase}}</th>
         <th>                  
           <button routerLink="/cars/GetCarDetailDtoByCarId/{{carDetail.carId}}"type="button" class="btn btn-primary btn-sm">Detay</button>
         </th>
