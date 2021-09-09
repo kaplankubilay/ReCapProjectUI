@@ -7,6 +7,7 @@ import { CarImage } from '../models/carImage';
 import { CarService } from '../services/car.service';
 import { CarImageService } from '../services/carImage.service';
 import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-car',
@@ -28,7 +29,8 @@ export class CarComponent implements OnInit {
   // basePath ="https://localhost:44319/";
 
   constructor(private carService:CarService,
-              private activatedRoute:ActivatedRoute) { }
+              private activatedRoute:ActivatedRoute,
+              private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -48,6 +50,7 @@ export class CarComponent implements OnInit {
     this.carService.getCarDetails().subscribe(response=>{
       this.carDetails=response.data;
       this.isLoaded=true;
+      this.toastrService.info("Arabalar listelendi.")
     });
   }
 

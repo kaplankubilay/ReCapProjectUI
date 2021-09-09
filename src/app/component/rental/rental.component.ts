@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { RentalDetail } from '../models/rentalDetail';
 import { RentalService } from '../services/rental.service';
 
@@ -11,7 +12,8 @@ export class RentalComponent implements OnInit {
 
   isLoad:boolean=false;
   rentalDetails:RentalDetail[]=[];
-  constructor(private rentalService:RentalService) { }
+  constructor(private rentalService:RentalService,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.getRentalDetailDtosComponent()
@@ -21,6 +23,7 @@ export class RentalComponent implements OnInit {
     this.rentalService.getRentalDetailsDto().subscribe(response=>{
       this.rentalDetails=response.data;
       this.isLoad=true;
+      this.toastrService.info("Kiralamalar Listelendi.")
     });
   }
 
