@@ -2,6 +2,11 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Filtre değeri...">
+</div>
+
 <table *ngIf='isLoaded' class="table">
     <thead>
         <tr>
@@ -16,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let carDetail of carDetails'>
+      <tr *ngFor='let carDetail of carDetails |filterPipe:filterText'>
         <th>{{carDetail.carId}}</th>
         <th>{{carDetail.brandName | uppercase }}</th>
         <th>{{carDetail.fuelName | uppercase }}</th>

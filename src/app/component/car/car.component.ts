@@ -6,6 +6,7 @@ import { CarDetail } from '../models/carDetail';
 import { CarImage } from '../models/carImage';
 import { CarService } from '../services/car.service';
 import { CarImageService } from '../services/carImage.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-car',
@@ -17,6 +18,8 @@ export class CarComponent implements OnInit {
   carDetails:CarDetail[]=[]
 
   isLoaded:boolean=false;
+
+  filterText="";
 
   // carImages:CarImage[];
 
