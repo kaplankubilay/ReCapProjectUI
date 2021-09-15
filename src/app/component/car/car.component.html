@@ -15,8 +15,8 @@
 <div class="row">
   <div class="col-md-3">
     <select [(ngModel)]="currentBrand" class="form-select">
-      <option [ngValue]="undefined" disabled selected>Markalar</option>
-      <option [value]="brand.id" [ngValue]="brand" *ngFor="let brand of brands">
+      <option [value]="undefined" disabled selected>Markalar</option>
+      <option [value]="brand.id" [value]="brand" *ngFor="let brand of brands">
         {{ brand.name }}
       </option>
     </select>
