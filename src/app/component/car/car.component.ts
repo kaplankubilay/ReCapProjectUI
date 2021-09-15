@@ -8,19 +8,34 @@ import { CarService } from '../services/car.service';
 import { CarImageService } from '../services/carImage.service';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Brand } from '../models/brand';
+import { BrandService } from '../services/brand.service';
 
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css']
+  styleUrls: ['./car.component.css'],
 })
 export class CarComponent implements OnInit {
+  carDetails: CarDetail[] = [];
 
-  carDetails:CarDetail[]=[]
+  brands: Brand[] = [];
 
-  isLoaded:boolean=false;
+  currentBrand: Brand;
+  // get currentBrand(): Brand {
+  //   return this._currentBrand;
+  // }
 
-  filterText="";
+  // set currentBrand(val: Brand) {
+  //   debugger;
+  //   this._currentBrand = val;
+  // }
+
+  filterBrandId: number;
+
+  isLoaded: boolean = false;
+
+  filterText = '';
 
   // carImages:CarImage[];
 
@@ -28,45 +43,62 @@ export class CarComponent implements OnInit {
 
   // basePath ="https://localhost:44319/";
 
-  constructor(private carService:CarService,
-              private activatedRoute:ActivatedRoute,
-              private toastrService:ToastrService) { }
+  constructor(
+    private carService: CarService,
+    private brandService: BrandService,
+    private activatedRoute: ActivatedRoute,
+    private toastrService: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-      if(params["brandId"]){
-        this.getCarsByBrandIdMetod(params["brandId"]);
-      }
-      else if(params["colorId"]){
-        this.getCarsByColorIdMetod(params["colorId"]);
-      }
-      else{
+    this.getAllBrandComponent();
+
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['brandId']) {
+        this.getCarsByBrandIdMetod(params['brandId']);
+      } else if (params['colorId']) {
+        this.getCarsByColorIdMetod(params['colorId']);
+      } else {
         this.getCarDetailMetod();
       }
     });
   }
 
-  getCarDetailMetod(){
-    this.carService.getCarDetails().subscribe(response=>{
-      this.carDetails=response.data;
-      this.isLoaded=true;
-      this.toastrService.info("Arabalar listelendi.")
+  getCarDetailMetod() {
+    this.carService.getCarDetails().subscribe((response) => {
+      this.carDetails = response.data;
+      this.isLoaded = true;
+      this.toastrService.info('Arabalar listelendi.');
     });
   }
 
-  getCarsByBrandIdMetod(brandId:number){
-    this.carService.getCarsByBrandId(brandId).subscribe(response=>{
-      this.carDetails=response.data;
-      this.isLoaded=true;
+  getCarsByBrandIdMetod(brandId: number) {
+    this.carService.getCarsByBrandId(brandId).subscribe((response) => {
+      this.carDetails = response.data;
+      this.isLoaded = true;
     });
   }
 
-  getCarsByColorIdMetod(colorId:number){
-    this.carService.getCarsByColorId(colorId).subscribe(response=>{
-      this.carDetails=response.data;
-      this.isLoaded=true;
-    })
+  getCarsByColorIdMetod(colorId: number) {
+    this.carService.getCarsByColorId(colorId).subscribe((response) => {
+      this.carDetails = response.data;
+      8;
+      this.isLoaded = true;
+    });
   }
+
+  getAllBrandComponent() {
+    this.brandService.getAllBrands().subscribe((response) => {
+      this.brands = response.data;
+    });
+  }
+
+  // isCurrentBrand(brand: Brand) {
+  //   if (!brand) return false;
+  //   if (!this.currentBrand) return false;
+  //   console.log(this.currentBrand.id);
+  //   return this.currentBrand.id === brand.id;
+  // }
 
   // getCarImageByCarId(carId:number) : CarImage[]{
   //   this.carImageService.getCarImagesMetod(carId).subscribe(response=>{
@@ -92,5 +124,4 @@ export class CarComponent implements OnInit {
   //   let postPath="https://localhost:44319/";
   //   return postPath +this.carImage.imagePath;
   // }
-
 }

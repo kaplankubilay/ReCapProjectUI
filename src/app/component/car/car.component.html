@@ -1,47 +1,82 @@
-<div *ngIf='!isLoaded' class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
+<div *ngIf="!isLoaded" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
 </div>
 
 <div class="mb-3">
   <label for="filterText" class="form-label">Ürün Ara</label>
-  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Filtre değeri...">
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="Filtre değeri..."
+  />
 </div>
+<div class="row">
+  <div class="col-md-3">
+    <select [(ngModel)]="currentBrand" class="form-select">
+      <option [ngValue]="undefined" disabled selected>Markalar</option>
+      <option [value]="brand.id" [ngValue]="brand" *ngFor="let brand of brands">
+        {{ brand.name }}
+      </option>
+    </select>
+  </div>
 
-<table *ngIf='isLoaded' class="table">
+  <div class="col-md-3">
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Renkler</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+
+  <div class="col-md-3">
+    <button type="button" class="btn btn-info">Info</button>
+  </div>
+</div>
+<div>
+  <table *ngIf="isLoaded" class="table">
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Marka</th>
-            <th>Yakıt</th>
-            <th>Renk</th>
-            <th>Açıklama</th>
-            <th>Model</th>
-            <th>Plaka</th>
-            <th></th>
-        </tr>
+      <tr>
+        <th>Id</th>
+        <th>Marka</th>
+        <th>Yakıt</th>
+        <th>Renk</th>
+        <th>Açıklama</th>
+        <th>Model</th>
+        <th>Plaka</th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let carDetail of carDetails |filterPipe:filterText'>
-        <th>{{carDetail.carId}}</th>
-        <th>{{carDetail.brandName | uppercase }}</th>
-        <th>{{carDetail.fuelName | uppercase }}</th>
-        <th>{{carDetail.colorName | uppercase }}</th>
-        <th>{{carDetail.description | uppercase }}</th>
-        <th>{{carDetail.modelYear}}</th>
-        <th>{{carDetail.plate | uppercase}}</th>
-        <th>                  
-          <button routerLink="/cars/GetCarDetailDtoByCarId/{{carDetail.carId}}"type="button" class="btn btn-primary btn-sm">Detay</button>
+      <tr *ngFor="let carDetail of carDetails | filterPipe: filterText">
+        <th>{{ carDetail.carId }}</th>
+        <th>{{ carDetail.brandName | uppercase }}</th>
+        <th>{{ carDetail.fuelName | uppercase }}</th>
+        <th>{{ carDetail.colorName | uppercase }}</th>
+        <th>{{ carDetail.description | uppercase }}</th>
+        <th>{{ carDetail.modelYear }}</th>
+        <th>{{ carDetail.plate | uppercase }}</th>
+        <th>
+          <button
+            routerLink="/cars/GetCarDetailDtoByCarId/{{ carDetail.carId }}"
+            type="button"
+            class="btn btn-primary btn-sm"
+          >
+            Detay
+          </button>
         </th>
       </tr>
     </tbody>
-    
-</table>
+  </table>
+</div>
 
 <!-- <div class="row" >
     <div *ngFor='let carDetail of carDetails' class="col-sm-4" style="height: 18rem;">      
         <div class="card" style="width: 18rem;" [class]="getFirstImageByCarId(carDetail.carId)"> -->
-          <!--<img class="card-img-top" src="../../../assets/img/defaultPhoto.jpg"  alt="Card image cap">-->
-          <!-- <img class="card-img-top" src="getPath()" alt="Card image cap">
+<!--<img class="card-img-top" src="../../../assets/img/defaultPhoto.jpg"  alt="Card image cap">-->
+<!-- <img class="card-img-top" src="getPath()" alt="Card image cap">
 
           <div class="card-body">
             <h5 class="card-title">{{carDetail.brandName}} - {{carDetail.modelName}}</h5>
@@ -58,5 +93,3 @@
         </div>
       </div>
 </div> -->
-
-
