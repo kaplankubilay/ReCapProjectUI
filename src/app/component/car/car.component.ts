@@ -22,26 +22,21 @@ export class CarComponent implements OnInit {
   brands: Brand[] = [];
 
   currentBrand: Brand;
-  // get currentBrand(): Brand {
-  //   return this._currentBrand;
-  // }
-
+  // _currentBrand: Brand;
+  //  get currentBrand(): Brand {
+  //    debugger;
+  //    return this._currentBrand;
+  //  }
   // set currentBrand(val: Brand) {
-  //   debugger;
-  //   this._currentBrand = val;
-  // }
+  //    debugger;
+  //    this._currentBrand = val;
+  //  }
 
   filterBrandId: number;
 
   isLoaded: boolean = false;
 
   filterText = '';
-
-  // carImages:CarImage[];
-
-  // carImage:CarImage;
-
-  // basePath ="https://localhost:44319/";
 
   constructor(
     private carService: CarService,
@@ -91,37 +86,5 @@ export class CarComponent implements OnInit {
     this.brandService.getAllBrands().subscribe((response) => {
       this.brands = response.data;
     });
-  }
-
-  // isCurrentBrand(brand: Brand) {
-  //   if (!brand) return false;
-  //   if (!this.currentBrand) return false;
-  //   console.log(this.currentBrand.id);
-  //   return this.currentBrand.id === brand.id;
-  // }
-
-  // getCarImageByCarId(carId:number) : CarImage[]{
-  //   this.carImageService.getCarImagesMetod(carId).subscribe(response=>{
-  //     this.carImages=response.data;
-  //   })
-  //   return this.carImages;
-  // }
-
-  // getFirstImageByCarId(carId:number):CarImage{
-  //     this.carImage =  this.getCarImageByCarId(carId)[0];
-  //     return this.carImage;
-  // }
-
-  // getCurrentImageClass(image:CarImage){
-  //   if(this.carImages[0]==image){
-  //     return "carousel-item active";
-  //   } else {
-  //     return "carousel-item ";
-  //   }
-  // }
-
-  // getPath(){
-  //   let postPath="https://localhost:44319/";
-  //   return postPath +this.carImage.imagePath;
-  // }
+  }  
 }
