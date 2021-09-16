@@ -1,5 +1,5 @@
 import { ReturnStatement } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { observable } from 'rxjs';
 import { CarDetail } from '../models/carDetail';
@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from '../models/brand';
 import { BrandService } from '../services/brand.service';
+import { ColorService } from '../services/color.service';
+import { Color } from '../models/color';
 
 @Component({
   selector: 'app-car',
@@ -20,8 +22,10 @@ export class CarComponent implements OnInit {
   carDetails: CarDetail[] = [];
 
   brands: Brand[] = [];
+  colors: Color[] = [];
 
-  currentBrand: Brand;
+  _selectedBrand: Brand;
+  _selectedColor: Color;
   // _currentBrand: Brand;
   //  get currentBrand(): Brand {
   //    debugger;
@@ -32,8 +36,6 @@ export class CarComponent implements OnInit {
   //    this._currentBrand = val;
   //  }
 
-  filterBrandId: number;
-
   isLoaded: boolean = false;
 
   filterText = '';
@@ -41,12 +43,14 @@ export class CarComponent implements OnInit {
   constructor(
     private carService: CarService,
     private brandService: BrandService,
+    private colorService:ColorService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.getAllBrandComponent();
+    this.getAllColorComponent();
 
     this.activatedRoute.params.subscribe((params) => {
       if (params['brandId']) {
@@ -87,4 +91,16 @@ export class CarComponent implements OnInit {
       this.brands = response.data;
     });
   }  
+
+  getAllColorComponent(){
+    this.colorService.getAllColors().subscribe(response=>{
+      this.colors = response.data;
+    });
+  }
+
+  getCarFiltered(_selectedBrand,_selectedColor){
+    var bId=_selectedBrand.id;
+    var cId=_selectedColor.id;
+    debugger;
+  }
 }
