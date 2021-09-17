@@ -35,7 +35,7 @@
     <button type="button" class="btn btn-info" (click)="getCarFiltered(_selectedBrand,_selectedColor)">Info</button>
   </div>
 </div>
-<div>
+<div>  
   <table *ngIf="isLoaded" class="table">
     <thead>
       <tr>
@@ -50,7 +50,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let carDetail of carDetails | filterPipe: filterText">
+      <tr *ngFor="let carDetail of carDetailResults | filterPipe: filterText">
         <th>{{ carDetail.carId }}</th>
         <th>{{ carDetail.brandName | uppercase }}</th>
         <th>{{ carDetail.fuelName | uppercase }}</th>
@@ -70,26 +70,3 @@
       </tr>
     </tbody>
   </table>
-</div>
-
-<!-- <div class="row" >
-    <div *ngFor='let carDetail of carDetails' class="col-sm-4" style="height: 18rem;">      
-        <div class="card" style="width: 18rem;" [class]="getFirstImageByCarId(carDetail.carId)"> -->
-<!--<img class="card-img-top" src="../../../assets/img/defaultPhoto.jpg"  alt="Card image cap">-->
-<!-- <img class="card-img-top" src="getPath()" alt="Card image cap">
-
-          <div class="card-body">
-            <h5 class="card-title">{{carDetail.brandName}} - {{carDetail.modelName}}</h5>
-            <p class="card-text">{{carDetail.description}}</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{carDetail.modelYear}} Model</li>
-            <li class="list-group-item">{{carDetail.fuelName}}</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-        </div>
-      </div>
-</div> -->

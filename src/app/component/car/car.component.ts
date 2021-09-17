@@ -20,6 +20,7 @@ import { Color } from '../models/color';
 })
 export class CarComponent implements OnInit {
   carDetails: CarDetail[] = [];
+  carDetailResults:CarDetail[]=[];
 
   brands: Brand[] = [];
   colors: Color[] = [];
@@ -57,7 +58,8 @@ export class CarComponent implements OnInit {
         this.getCarsByBrandIdMetod(params['brandId']);
       } else if (params['colorId']) {
         this.getCarsByColorIdMetod(params['colorId']);
-      } else {
+      }
+      else {
         this.getCarDetailMetod();
       }
     });
@@ -65,7 +67,7 @@ export class CarComponent implements OnInit {
 
   getCarDetailMetod() {
     this.carService.getCarDetails().subscribe((response) => {
-      this.carDetails = response.data;
+      this.carDetailResults = response.data;
       this.isLoaded = true;
       this.toastrService.info('Arabalar listelendi.');
     });
@@ -81,7 +83,6 @@ export class CarComponent implements OnInit {
   getCarsByColorIdMetod(colorId: number) {
     this.carService.getCarsByColorId(colorId).subscribe((response) => {
       this.carDetails = response.data;
-      8;
       this.isLoaded = true;
     });
   }
@@ -99,8 +100,10 @@ export class CarComponent implements OnInit {
   }
 
   getCarFiltered(_selectedBrand,_selectedColor){
-    var bId=_selectedBrand.id;
-    var cId=_selectedColor.id;
-    debugger;
+    this.carService.getCarDetails().subscribe((response) => {
+      this.carDetailResults = response.data.filter(x=>x.brandId==_selectedBrand.id && x.colorId==_selectedColor.id);
+      this.isLoaded = true;
+      this.toastrService.info('Arabalar listelendi.');
+    });    
   }
 }
