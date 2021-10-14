@@ -1,4 +1,4 @@
-<div 
+<div
   id="carouselExampleIndicators"
   class="carousel slide"
   data-bs-ride="carousel"
@@ -18,16 +18,15 @@
   <div class="carousel-inner">
     <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
       <img
-        
         [src]="getPath() + image.imagePath"
         class="d-block w-100"
         width="700"
         height="520"
         alt="Image"
-      >
+      />
     </div>
   </div>
-  
+
   <button
     class="carousel-control-prev"
     type="button"
@@ -66,10 +65,40 @@
         <td>{{ detail.colorName }}</td>
         <td>{{ detail.modelYear }}</td>
         <td>{{ detail.fuelName }}</td>
-        <td>{{ detail.dailyPrice + "₺"}}</td>
-        <td>{{ (detail.dailyPrice | vatAdded : 18)+ "₺" }}</td>
+        <td>{{ detail.dailyPrice + "₺" }}</td>
+        <td>{{ (detail.dailyPrice | vatAdded: 18) + "₺" }}</td>
         <td>{{ detail.description }}</td>
+        <td>
+          <button
+            routerLink="/cars/GetCarDetailDtoByCarId/{{ detail.carId }}"
+            type="button"
+            class="btn btn-primary btn-sm"
+          >
+            Kirala
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
+
+  <div class="form-group row mb-2">
+    <label for="example-date-input" class="col-4 col-form-label"
+      >Başlangıç</label
+    >
+    <div class="col-8">
+      <input class="form-control" type="date" />
+    </div>
+  </div>
+  <div class="form-group row mb-2">
+    <label for="example-date-input" class="col-4 col-form-label">Dönüş</label>
+    <div class="col-8">
+      <input class="form-control" type="date" />
+    </div>
+  </div>
+  <!-- <button
+    routerLink="/cars/GetCarDetailDtoByCarId/{{ carDetail.carId }}"
+    type="button"
+    class="btn btn-primary btn-sm"
+  >Kirala
+  </button> -->
 </div>

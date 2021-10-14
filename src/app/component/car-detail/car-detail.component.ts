@@ -16,6 +16,7 @@ export class CarDetailComponent implements OnInit {
   carDetails: CarDetail[];
   carImages: CarImage[];
   currentImage:CarImage;
+  carDetail:CarDetail;
 
   constructor(
     private carService:CarService,
